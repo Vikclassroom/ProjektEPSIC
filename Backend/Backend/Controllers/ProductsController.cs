@@ -27,6 +27,21 @@ namespace Infrastructure.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id) => await _repo.GetProductByIdAsync(id);
+        public async Task<ActionResult<Product>> GetProduct(int id)
+        {
+           return await _repo.GetProductByIdAsync(id);
+        }
+
+        [HttpGet("brands")]
+        public async Task<ActionResult<IReadOnlyList<ProductBrand>>> GetProductBrand()
+        {
+            return Ok(await _repo.GetProductTypesAsync());
+        }
+
+        [HttpGet("types")]
+        public async Task<ActionResult<IReadOnlyList<ProductType>>> GetProductType()
+        {
+            return Ok(await _repo.GetProductTypesAsync());
+        }
     }
 }
