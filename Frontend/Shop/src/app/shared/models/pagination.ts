@@ -1,6 +1,6 @@
 import {IProduct} from './products';
 
-export interface IPagintation {
+export interface IPagination {
   pageIndex: number;
   pageSize: number;
   count: number;
