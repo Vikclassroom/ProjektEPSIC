@@ -12,3 +12,21 @@
   top: -12px;
   right: 32px;
 }
+
+.menu {
+  text-decoration: none;
+  color:#343a40;
+  background: floralwhite;
+  &.active {
+    color: floralwhite;
+    background: black;
+  }
+}
+
+.logo{
+  cursor: pointer;
+
+  &:focus{
+    outline: none;
+  }
+}

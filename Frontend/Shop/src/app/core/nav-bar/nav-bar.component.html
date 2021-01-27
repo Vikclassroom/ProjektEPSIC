@@ -1,11 +1,11 @@
 <div
   class="d-flex flex-column flex-md-row align-items-center justify-content-between p-3 px-md-4 mb-3 border-bottom shadow-sm fixed-top"
   style="background-image: url(assets/images/schmitt_banner_image_dannyburrows_0.jpg); background-repeat: no-repeat">
-  <img src="assets/images/logo.png" style="max-height: 120px" alt="logo">
+  <img src="assets/images/logo.png" style="max-height: 120px" alt="logo" class="logo" [routerLink]="['/']">
   <nav class="my-2 my-md-0 mr-md-3 text-uppercase" style="font-size: larger;">
-    <a class="p-2 text-dark bg-light" style="border: floralwhite 1px solid" href="#">Home</a>
-    <a class="p-2 text-dark bg-light" style="border: floralwhite 1px solid" href="#">Shop</a>
-    <a class="p-2 text-dark bg-light" style="border: floralwhite 1px solid" href="#">Contact</a>
+    <a class="menu p-2" style="border: floralwhite 1px solid" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a class="menu p-2" style="border: floralwhite 1px solid" [routerLink]="['/shop']" routerLinkActive="active">Shop</a>
+    <a class="menu p-2" style="border: floralwhite 1px solid" [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
   </nav>
   <div class="d-flex align-items-center">
     <a class="position-relative">

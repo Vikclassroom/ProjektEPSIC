@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-pagin-header',
+  selector: 'app-paging-header',
   templateUrl: './paging-header.component.html',
   styleUrls: ['./paging-header.component.scss']
 })
