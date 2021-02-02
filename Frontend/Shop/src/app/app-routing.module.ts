@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {ShopModule} from './shop/shop.module';
+import {BasketModule} from './basket/basket.module';
+import {CheckoutModule} from './checkout/checkout.module';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, data: {breadcrumb: 'Home'}},
   {path: 'shop', loadChildren: () => import('./shop/shop.module').then(mod => ShopModule), data: {breadcrumb: 'Shop'}},
+  {path: 'basket', loadChildren: () => import('./basket/basket.module').then(mod => BasketModule), data: {breadcrumb: 'basket'}},
+  {path: 'checkout', loadChildren: () => import('./checkout/checkout.module').then(mod => CheckoutModule), data: {breadcrumb: 'checkout'}},
   {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 
