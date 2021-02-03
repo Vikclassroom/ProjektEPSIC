@@ -1,3 +1,4 @@
+using API.Extensions;
 using AutoMapper;
 using Backend.Extensions;
 using Backend.Helpers;
@@ -47,6 +48,8 @@ namespace Infrastructure
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Backend", Version = "v1" });
             });
+
+            services.AddIdentityServices(_config);
             services.AddCors(opt =>
             {
                 opt.AddPolicy("CorsPolicy", policy =>
@@ -78,6 +81,10 @@ namespace Infrastructure
             app.UseStaticFiles();
 
             app.UseCors("CorsPolicy");
+
+            app.UseAuthentication();
+
+            app.UseAuthorization();
 
             app.UseAuthorization();
 
