@@ -4,6 +4,7 @@ using Backend.Helpers;
 using Backend.Middleware;
 using Core.Interfaces;
 using Infrastructure.Data;
+using Infrastructure.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -30,6 +31,11 @@ namespace Infrastructure
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddDbContext<StoreContext>(x => 
                 x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<AppIdentityDbContext>(x =>
+                {
+                    x.UseSqlite(_config.GetConnectionString("IdentityConnection"));
+                });
 
             services.AddSingleton<IConnectionMultiplexer>( c => {
                 var configuration = ConfigurationOptions.Parse(_config
