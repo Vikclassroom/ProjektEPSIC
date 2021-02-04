@@ -3,12 +3,13 @@
   style="background-image: url(assets/images/schmitt_banner_image_dannyburrows_0.jpg); background-repeat: no-repeat">
   <img src="assets/images/logo.png" style="max-height: 120px" alt="logo" class="logo" [routerLink]="['/']">
   <nav class="my-2 my-md-0 mr-md-3 text-uppercase" style="font-size: larger;">
-    <a class="menu p-2" style="border: floralwhite 1px solid" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-    <a class="menu p-2" style="border: floralwhite 1px solid" [routerLink]="['/shop']" routerLinkActive="active">Shop</a>
-    <a class="menu p-2" style="border: floralwhite 1px solid" [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
+    <a class="menu p-2" style="border: white 1px solid" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a class="menu p-2" style="border: white 1px solid" [routerLink]="['/shop']" routerLinkActive="active">Shop</a>
+    <a class="menu p-2" style="border: white 1px solid" [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
   </nav>
   <div class="d-flex align-items-center">
     <a routerLink="/basket" class="position-relative">
+
       <i class="fa fa-shopping-cart fa-2x mr-5 text-dark"></i>
       <div *ngIf="(basket$ | async) as basket" class="cart-no">{{basket.items.length}}</div>
     </a>

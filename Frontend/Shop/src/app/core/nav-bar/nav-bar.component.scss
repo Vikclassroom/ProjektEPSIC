@@ -6,7 +6,7 @@
   font-size: 1em;
   background: black;
   border: 1.8px solid;
-  border-color: aquamarine;
+  border-color: black;
   color:white;
   text-align: center;
   top: -12px;
@@ -16,7 +16,7 @@
 .menu {
   text-decoration: none;
   color:#343a40;
-  background: floralwhite;
+  background: white;
   &.active {
     color: floralwhite;
     background: black;
@@ -28,5 +28,15 @@
 
   &:focus{
     outline: none;
+  }
+}
+
+@media (min-width: 992px){
+  .navbar.navbar-header-wrap.classic-header .nav .menu-item .nav-link {
+    padding: 25px 1.25rem;
+  }
+  .site-branding-text {
+    margin-top: 0.740rem;
+    margin-bottom: 0.700rem;
   }
 }
