@@ -1,11 +1,10 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
-import {ShopModule} from './shop/shop.module';
-import {BasketModule} from './basket/basket.module';
-import {CheckoutModule} from './checkout/checkout.module';
-import {AccountModule} from './account/account.module';
 import {AuthGuard} from './core/guards/auth.guard';
+import {TestErrorComponent} from './core/test-error/test-error.component';
+import {ServerErrorComponent} from './core/server-error/server-error.component';
+import {NotFoundComponent} from './core/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -14,8 +13,25 @@ const routes: Routes = [
     data: {breadcrumb: 'Home'}
   },
   {
+    path: 'test-error',
+    component: TestErrorComponent,
+    data: {breadcrumb: 'Error'}
+  },
+  {
+    path: 'server-error',
+    component: ServerErrorComponent,
+    data: {breadcrumb: 'Error'}
+  },
+  {
+    path: 'not-found',
+    component: NotFoundComponent,
+    data: {breadcrumb: 'Error'}
+  },
+  {
     path: 'shop',
-    loadChildren: () => import('./shop/shop.module').then(mod => mod.ShopModule), data: {breadcrumb: 'Shop'}
+    loadChildren: () => import('./shop/shop.module')
+      .then(mod => mod.ShopModule),
+    data: {breadcrumb: 'Shop'}
   },
   {
     path: 'basket',
