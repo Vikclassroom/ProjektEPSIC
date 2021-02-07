@@ -42,7 +42,12 @@ namespace Backend.Controllers
         {
             var thing = _context.Products.Find(42);
 
-            var thingToReturn = thing.ToString();
+            //var thingToReturn = thing.ToString();
+
+            if (thing == null) 
+            {
+                return BadRequest(new ApiResponse(500));
+            }
 
             return Ok();
         }
