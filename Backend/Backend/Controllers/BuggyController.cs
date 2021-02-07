@@ -1,11 +1,7 @@
 ﻿using Backend.Errors;
 using Infrastructure.Data;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers
 {
@@ -21,7 +17,7 @@ namespace Backend.Controllers
         [Authorize]
         public ActionResult<string> GetSecretText()
         {
-            return "Secret Service shhhhhhhhhhhhhhhht";
+            return "secret stuff";
         }
 
         [HttpGet("notfound")]
@@ -42,12 +38,7 @@ namespace Backend.Controllers
         {
             var thing = _context.Products.Find(42);
 
-            //var thingToReturn = thing.ToString();
-
-            if (thing == null) 
-            {
-                return BadRequest(new ApiResponse(500));
-            }
+            var thingToReturn = thing.ToString();
 
             return Ok();
         }

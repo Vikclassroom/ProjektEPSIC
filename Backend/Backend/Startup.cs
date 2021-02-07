@@ -1,6 +1,5 @@
-using API.Extensions;
-using AutoMapper;
 using Backend.Extensions;
+using AutoMapper;
 using Backend.Helpers;
 using Backend.Middleware;
 using Core.Interfaces;
@@ -100,8 +99,6 @@ namespace Infrastructure
             app.UseCors("CorsPolicy");
 
             app.UseAuthentication();
-
-            app.UseAuthorization();
 
             app.UseAuthorization();
 

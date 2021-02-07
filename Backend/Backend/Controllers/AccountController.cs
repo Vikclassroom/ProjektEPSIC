@@ -5,11 +5,11 @@ using Backend.Dtos;
 using Backend.Errors;
 using Backend.Extensions;
 using AutoMapper;
-using Core.Entities.Identitiy;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Core.Entities.Identitiy;
 
 namespace Backend.Controllers
 {
@@ -68,7 +68,7 @@ namespace Backend.Controllers
 
             if (result.Succeeded) return Ok(_mapper.Map<Address, AddressDto>(user.Address));
 
-            return BadRequest("Bad updating");
+            return BadRequest("Problem updating the user");
         }
 
         [HttpPost("login")]
