@@ -1,4 +1,4 @@
-﻿namespace Core.Entities.Identitiy
+﻿namespace Core.Entities.Identity
 {
     public class Address
     {

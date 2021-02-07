@@ -21,10 +21,11 @@ export class AccountService {
   loadCurrentUser(token: string) {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', `Bearer ${token}`);
-
+    console.log(headers);
     return this.http.get(this.baseUrl + 'account', {headers}).pipe(
       map((user: IUser) => {
         if (user) {
+          console.log(user);
           localStorage.setItem('token', user.token);
           this.currentUserSource.next(user);
         }

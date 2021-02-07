@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Backend.Dtos;
 using Backend.Errors;
 using Backend.Extensions;
@@ -9,7 +7,7 @@ using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Core.Entities.Identitiy;
+using Core.Entities.Identity;
 
 namespace Backend.Controllers
 {
@@ -93,11 +91,6 @@ namespace Backend.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
-            if (CheckEmailExistsAsync(registerDto.Email).Result.Value)
-            {
-                return new BadRequestObjectResult(new ApiValidationErrorResponse { Errors = new[] { "Email address is in use" } });
-            }
-
             var user = new AppUser
             {
                 DisplayName = registerDto.DisplayName,
