@@ -7,56 +7,17 @@ import {ServerErrorComponent} from './core/server-error/server-error.component';
 import {NotFoundComponent} from './core/not-found/not-found.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent,
-    data: {breadcrumb: 'Home'}
-  },
-  {
-    path: 'test-error',
-    component: TestErrorComponent,
-    data: {breadcrumb: 'Error'}
-  },
-  {
-    path: 'server-error',
-    component: ServerErrorComponent,
-    data: {breadcrumb: 'Error'}
-  },
-  {
-    path: 'not-found',
-    component: NotFoundComponent,
-    data: {breadcrumb: 'Error'}
-  },
-  {
-    path: 'shop',
-    loadChildren: () => import('./shop/shop.module')
-      .then(mod => mod.ShopModule),
-    data: {breadcrumb: 'Shop'}
-  },
-  {
-    path: 'basket',
-    loadChildren: () => import('./basket/basket.module')
-      .then(mod => mod.BasketModule),
-    data: {breadcrumb: 'basket'}
-  },
-  {
-    path: 'checkout',
-    canActivate: [AuthGuard],
-    loadChildren: () => import('./checkout/checkout.module')
-      .then(mod => mod.CheckoutModule),
-    data: {breadcrumb: 'checkout'}
-  },
-  {
-    path: 'account',
-    loadChildren: () => import('./account/account.module')
-      .then(mod => mod.AccountModule),
-    data: {breadcrumb: {skip: true}}
-  },
-  {
-    path: '**',
-    redirectTo: '',
-    pathMatch: 'full'
-  }
+  {path: '', component: HomeComponent, data: {breadcrumb: 'Home'}},
+  {path: 'test-error', component: TestErrorComponent},
+  {path: 'server-error', component: ServerErrorComponent},
+  {path: 'not-found', component: NotFoundComponent},
+  {path: 'shop', loadChildren: () => import('./shop/shop.module').then(mod => mod.ShopModule), data: {breadcrumb: 'Shop'}},
+  {path: 'basket', loadChildren: () => import('./basket/basket.module').then(mod => mod.BasketModule), data: {breadcrumb: 'basket'}},
+  {path: 'checkout', canActivate: [AuthGuard], loadChildren: () => import('./checkout/checkout.module')
+      .then(mod => mod.CheckoutModule), data: {breadcrumb: 'checkout'}},
+  {path: 'account', loadChildren: () => import('./account/account.module')
+      .then(mod => mod.AccountModule), data: {breadcrumb: {skip: true}}},
+  {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
+import {HttpInterceptor, HttpRequest, HttpHandler, HttpEvent} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
@@ -10,12 +10,10 @@ export class JwtInterceptor implements HttpInterceptor {
     if (token) {
       req = req.clone({
         setHeaders: {
-          Autorization : `Bearer ${token}`
+          Authorization: `Bearer ${token}`
         }
       });
     }
-
     return next.handle(req);
   }
-
 }
